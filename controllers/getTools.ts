@@ -8,11 +8,6 @@ export async function toolGetAll(request: Request, response: Response) {
 
     const tools = await toolRepository.find();
 
-    if (!tools) {
-        response.status(404)
-        response.end()
-        return;
-    }
 
-    response.send(tools);
+    response.json(tools);
 }

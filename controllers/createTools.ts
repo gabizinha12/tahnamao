@@ -7,11 +7,10 @@ export async function toolCreate(request: Request, response: Response) {
 
     const toolRepository = getManager().getRepository(Tool);
 
-    const newTools = await toolRepository.create(request.body)
+    const newTools = await toolRepository.save(request.body)
 
     if (newTools) {
         response.sendStatus(201)
-        response.json(newTools)
         console.log(newTools)
     }
 
