@@ -47,6 +47,26 @@
         }
       }
     },
+    "/tools" : {
+      "get" : {
+        "tags" : [ "tools" ],
+        "summary" : "searches tools",
+        "description" : "",
+        "operationId" : "searchTools",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "search results matching criteria",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Tool"
+              }
+            }
+          }
+        }
+      }
+    },
     "/tools/{id}" : {
       "delete" : {
         "tags" : [ "tools" ],
