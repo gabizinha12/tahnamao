@@ -47,6 +47,33 @@
         }
       }
     },
+    "/tools/{id}" : {
+      "delete" : {
+        "tags" : [ "tools" ],
+        "summary" : "deletes tools by id",
+        "description" : "Deletes tools by id",
+        "operationId" : "deleteToolsbyId",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "pass an id to delete tool",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "Success",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Tool"
+              }
+            }
+          }
+        }
+      }
+    },
     "/tools" : {
       "post" : {
         "tags" : [ "tools" ],
