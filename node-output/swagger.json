@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "This is a simple API",
-    "version" : "1.0.0",
+    "version" : "1.0.1",
     "title" : "VUTTR",
     "contact" : {
       "email" : "gabrielle.clima23@gmail.com"
