@@ -19,7 +19,7 @@ export const AppRoutes = [
         action: toolGetTag
     },
     {
-        path: "/createTool",
+        path: "/tools",
         method: "post",
         action: toolCreate
     },

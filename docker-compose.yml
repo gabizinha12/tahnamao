@@ -1,35 +1,44 @@
-networks:
-  app-tier:
-    driver: bridge
+version: "3"
+
 services:
   api:
-    image: tahnamao-api
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api
     networks:
       - app-tier
+    tty: true
     ports:
       - "3000:3000"
+    depends_on:
+      - db
 
   web-cli:
-    image: tahnamao-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
     networks:
       - app-tier
     command: sh
 
   db:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+    image: mysql:5.7
+    command: --innodb-use-native-aio=0
+    container_name: db
     restart: always
+    tty: true
     expose:
       - "3306"
-
     environment:
       MYSQL_DATABASE: tahnamao_test
-      MYSQL_USER: root
       MYSQL_PASSWORD: gabilimajk12
       MYSQL_ROOT_HOST: "%"
       MYSQL_ALLOW_EMPTY_PASSWORD: "true"
-  backend:
-    depends_on:
-      - db
-    build: .
+    networks:
+      - app-tier
+
+networks:
+  app-tier:
+    driver: bridge

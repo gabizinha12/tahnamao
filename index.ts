@@ -6,7 +6,7 @@ import * as express from "express";
 import { Tool } from "./vuttr/src/entity/Tool";
 createConnection({
     type: "mysql",
-    host: "test",
+    host: "localhost",
     port: 3306,
     username: "root",
     password: "gabilimajk12",
